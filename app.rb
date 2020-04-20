@@ -1,5 +1,6 @@
 # lignes très pratiques qui appellent les gems du Gemfile. On verra plus tard comment s'en servir ;) - ça évite juste les "require" partout
 require 'bundler'
+require 'pry'
 Bundler.require
 
 # lignes qui appellent les fichiers lib/user.rb et lib/event.rb
@@ -10,3 +11,17 @@ require_relative 'lib/event'
 
 # Maintenant c'est open bar pour tester ton application. Tous les fichiers importants sont chargés
 # Tu peux faire User.new, Event.new, binding.pry, User.all, etc.
+
+
+
+
+user_1 = User.new("john@gmail", 28)
+user_2 = User.new("alice@gmail", 35)
+
+
+event_1 = Event.new("2019-01-13 09:00", 10, "standup quotidien", ["truc@machin.com", "bidule@chose.fr"])
+event_2 = Event.new("2020-03-20 10:00", 15, "opera", ["lido@gmail.com", "pat@gmail.com"])
+
+binding.pry
+
+
