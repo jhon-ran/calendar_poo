@@ -26,7 +26,7 @@ class User
     return @@all_users
   end
 
-binding.pry
+#binding.pry
 puts "End of user's file"
 
 end

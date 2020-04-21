@@ -11,7 +11,7 @@ class Event
     @duration = duration
     @title = title
     @attendees = attendees
-    @@attendees = @@attendees << attendees
+    @@attendees = attendees
   end
 
 
@@ -35,6 +35,22 @@ class Event
     return @start_date > Time.now + 60*30
   end
 
+  def age_analysis
+    age_array = [] #On initialise un array qui va contenir les âges de tous les participants à un évènement
+    average = 0 #On initialise une variable pour calculer la moyenne d'âge à l'évènement
+
+    @attendees.each do |attendee|
+      age_array << attendee.age 
+      average = average + attendee.age
+    end
+
+    average = average / @attendees.length
+
+    puts "This is the age of attendees:"
+    puts age_array.join(", ")
+    puts "The average age is #{average} years"
+  end
+
   def to_s
     puts "Title: #{@title}"
     puts "Start date: #{@start_date}"
@@ -42,11 +58,7 @@ class Event
     puts "Attendees: #{@attendees.join(", ")}"
   end
 
-  def self.all
-    return @@attendees
-  end
-
-binding.pry
+#binding.pry
 puts "End of event's file"
 end
 
